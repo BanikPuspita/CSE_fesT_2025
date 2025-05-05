@@ -12,6 +12,7 @@ import Movie from "../Pages/Movie/Movie";
 import Therapist from "../Pages/Therapist/Therapist";
 import AdminLayout from "../Layout/AdminLayout";
 import AdminHome from "../Pages/AdminPages/AdminHome/AdminHome";
+import Marathon from "../Pages/Marathon/Marathon";
 
 
 
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             { 
                 path:"/signup",
                 element:<Signup/>,
+            },
+            { 
+                path:"/marathon",
+                element:<Marathon/>,
             },
             {
                 path:"/login",
