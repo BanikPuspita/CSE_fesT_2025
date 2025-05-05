@@ -8,6 +8,8 @@ import Cgpa from "../Pages/Save Cgpa/Cgpa";
 import StudyOrganizer from "../Pages/Save Cgpa/StudyOrganizer/StudyOrganizer";
 import StartLife from "../Pages/StartLife/StartLife";
 import Skills from "../Pages/Skills/Skills";
+import Movie from "../Pages/Movie/Movie";
+import Therapist from "../Pages/Therapist/Therapist";
 
 
 
@@ -47,6 +49,14 @@ export const router = createBrowserRouter([
             {
                 path:"/skills",
                 element:<Skills/>,
+            },
+            {
+                path:"/movie",
+                element:<Movie/>,
+            },
+            {
+                path:"/therapist",
+                element:<Therapist/>,
             },
 
         ]

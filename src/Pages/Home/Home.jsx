@@ -1,7 +1,14 @@
 import React from 'react';
-import './Home.css'
+import { useNavigate } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/signup'); // Navigate to the signup page
+    };
+
     return (
         <div className="homepage">
           <section className="hero">
@@ -9,7 +16,9 @@ const Home = () => {
             <p>
               Join Hablu as he works to improve his CGPA, learn new skills, and transform his life!
             </p>
-            <button className="start-missions-btn">Let’s Fix Hablu’s Life</button>
+            <button className="start-missions-btn" onClick={handleButtonClick}>
+              Let’s Fix Hablu’s Life
+            </button>
           </section>
     
           <section className="timeline">
@@ -28,7 +37,7 @@ const Home = () => {
             <blockquote>“You have god-given talents. Please now return them to God.”</blockquote>
           </section>
         </div>
-      );
-    };
+    );
+};
 
 export default Home;

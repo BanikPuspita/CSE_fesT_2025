@@ -39,11 +39,11 @@ function Signup() {
 
   return (
     <div className="signup-container">
-      <section className="signup-info-section">
-        <h2>Join Us Today!</h2>
+     <section className="signup-info-section">
+        <h2>Welcome Hablu</h2>
         <p>
-          Signing up gives you exclusive access to personalized features, a supportive community, and top-tier resources.  
-          Get started now and experience the best platform for your needs!
+          It's time to prove yourself. Show everyone what you are capable of and build an untouchable version of yourself. 
+          Enter in a world created just for you.
         </p>
       </section>
 
