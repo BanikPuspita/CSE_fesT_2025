@@ -13,9 +13,6 @@ const Home = () => {
         <div className="homepage">
           <section className="hero">
             <h1>Welcome to Hablu’s Comeback Journey</h1>
-            <p>
-              Join Hablu as he works to improve his CGPA, learn new skills, and transform his life!
-            </p>
             <button className="start-missions-btn" onClick={handleButtonClick}>
               Let’s Fix Hablu’s Life
             </button>

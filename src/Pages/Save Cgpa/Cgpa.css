@@ -1,75 +1,136 @@
 
+body {
+  background: linear-gradient(135deg,  #e0f7fa, #fffde7);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .cgpa-calculator {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(144, 141, 141, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  color: #141111;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.cgpa-calculator h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.cgpa-calculator p {
+  font-size: 1.1rem;
+  color: #332828;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 500;
+  margin: 10px 0 5px;
+  display: block;
+  color: #010101;
+  text-align: left;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(241, 180, 180, 0.25);
+  color: #161414;
+  backdrop-filter: blur(5px);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: #191717;
+}
+
+input:focus {
+  background: rgba(11, 10, 10, 0.35);
+}
+
+.course-input {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.2s;
+}
+
+.course-input:hover {
+  transform: scale(1.01);
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+}
+
+.enrolled-courses {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.enrolled-courses h3 {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.enrolled-courses table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.enrolled-courses th,
+.enrolled-courses td {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.enrolled-courses th {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  h1 {
-    text-align: center;
-    color: #4CAF50;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .courses {
-    margin-top: 20px;
-  }
-  
-  .course-input {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    font-size: 14px;
-    margin-right: 8px;
-  }
-  
-  input[type="number"],
-  input[type="text"] {
-    padding: 8px;
-    margin: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    width: 100%;
-    max-width: 250px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    display: block;
-    margin: 20px auto;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  h3 {
-    text-align: center;
-    color: #333;
-    font-size: 20px;
-  }
-  .enrolled-courses table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-  }
-  
-  .enrolled-courses th, .enrolled-courses td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .enrolled-courses th {
-    background-color: #f2f2f2;
-  }
+}

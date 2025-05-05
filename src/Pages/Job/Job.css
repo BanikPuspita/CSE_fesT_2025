@@ -1,114 +1,143 @@
-/* Job.css */
-
-.job-wrapper {
-    padding: 20px;
-    background-color: #f9fafb;
-    min-height: 100vh;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #f0f4f8, #f9fafb);
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+  }
+  
+  .job-wrapper {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
   }
   
   .job-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 2.6rem;
     color: #1f2937;
-    font-weight: 700;
+    font-weight: bold;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
   }
   
   .filter-container {
     display: flex;
-    gap: 15px;
     justify-content: center;
-    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
   }
   
   .filter-container select {
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 12px;
     border: 1px solid #d1d5db;
-    font-size: 1rem;
     background-color: #ffffff;
+    color: #374151;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+  }
+  
+  .filter-container select:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 4px 14px rgba(96, 165, 250, 0.15);
   }
   
   .job-card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 0 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
   }
   
   .job-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: white;
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+    background-color: #ffffff;
+    padding: 26px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
   }
   
   .job-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    border-color: #93c5fd;
   }
   
   .job-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #111827;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1f2937;
   }
   
   .job-description {
-    font-size: 0.95rem;
     color: #4b5563;
-    margin-bottom: 15px;
-    line-height: 1.5;
+    font-size: 15px;
+    margin-bottom: 14px;
+    line-height: 1.7;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 8px 0;
   }
   
-  .job-info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    color: #374151;
-  }
   
   .job-info p {
-    margin: 0;
+    margin: 6px 0;
+    color: #374151;
+    font-size: 14px;
   }
   
-  .accept {
-    color: #2563eb;
-    font-weight: bold;
+  .status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 999px;
+    font-weight: 600;
+    margin-top: 10px;
   }
   
-  .reject {
-    color: #dc2626;
-    font-weight: bold;
+  .status-badge.accept {
+    background-color: #bbf7d0;
+    color: #166534;
   }
   
-  .job-card button {
-    align-self: flex-start;
-    margin-top: auto;
-    padding: 8px 14px;
+  .status-badge.reject {
+    background-color: #fecaca;
+    color: #7f1d1d;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 12px 18px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
+    background-color: #60a5fa;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
-    background-color: #e0f2fe;
-    color: #1e3a8a;
-    font-size: 0.95rem;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
   
-  .job-card button:hover {
-    background-color: #bae6fd;
+  button:hover {
+    background-color: #3b82f6;
   }
   
-  .job-card button.bookmarked {
-    background-color: #fef3c7;
-    color: #92400e;
-    font-weight: bold;
+  button.bookmarked {
+    background-color: #fde68a;
+    color: #78350f;
+  }
+  
+  .loading-message,
+  .empty-message {
+    text-align: center;
+    font-size: 18px;
+    color: #6b7280;
+    margin-top: 40px;
   }
   

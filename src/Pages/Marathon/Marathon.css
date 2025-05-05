@@ -1,68 +1,111 @@
 /* Marathon.css */
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    margin: 100;
+    padding: 100;
 }
 
 h2 {
-    color: #333;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2rem;
+    color: #1e293b;
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
+    max-width: 800px;
+    margin: 10px auto 20px auto;
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.7;
+    text-align: center;
 }
 
 button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
+    display: block;
+    margin: 30px auto;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
     color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 button:hover {
-    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
 }
 
 h3 {
-    margin-top: 20px;
-    color: #444;
+    text-align: center;
+    color: #1e293b;
+    margin-top: 50px;
+    font-size: 1.5rem;
 }
 
-h4 {
-    margin: 0;
-    color: #222;
+/* Marathon Card Styles */
+.marathon-card {
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 10px 0;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.marathon-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
 }
 
-.card p {
-    margin: 5px 0;
+.marathon-card h4 {
+    margin-bottom: 12px;
+    color: #0f172a;
 }
 
-.card ul {
-    list-style: none;
-    padding: 0;
+.marathon-card p {
+    margin: 6px 0;
+    color: #475569;
+    font-size: 0.95rem;
 }
 
-.card li {
-    margin: 5px 0;
-    padding: 5px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+/* Error Styling */
+p[style*="color: red"] {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .marathon-card {
+        padding: 16px;
+        margin: 15px 10px;
+    }
+
+    button {
+        width: 90%;
+    }
+
+    h2, h3 {
+        font-size: 1.4rem;
+    }
 }

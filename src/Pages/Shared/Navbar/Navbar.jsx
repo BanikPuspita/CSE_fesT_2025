@@ -13,19 +13,13 @@ const Navbar = () => {
       <div className="logo">Hablu the Stupid</div>
       <ul className="nav-links">
         <li><a href="/">Home</a></li>
+        <li><a href="/cgpa">CGPA Overview</a></li>
         <li><a href="/skills">Find Your Skill</a></li>
         <li><a href="/job">Find Job</a></li>
+        <li><a href="/marathon">Runner Hablu</a></li>
+        <li><a href="/gymbuddy">GymBuddy</a></li>
         <li><a href="/movie">Movies</a></li> 
         <li><a href="/therapist">Emotional support</a></li>
-        <li className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
-          <a href="#improve-studies">Improve Studies</a>
-          {dropdownOpen && (
-            <ul className="dropdown-menu">
-              <li><a href="#study-tips">Study Tips</a></li>
-              <li><a href="#resources">Resources</a></li>
-            </ul>
-          )}
-        </li>
       </ul>
     </nav>
   );

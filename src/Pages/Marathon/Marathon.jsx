@@ -37,7 +37,7 @@ const Marathon = () => {
                 Participating in a marathon could be the breakthrough he needs for both physical and mental strength. 
                 Let’s help him find the right event to start his journey.
             </p>
-            <button onClick={fetchMarathonInfo}>Fetch Marathon Info</button>
+            <button onClick={fetchMarathonInfo}>"Discover Upcoming Marathons"</button>
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
 

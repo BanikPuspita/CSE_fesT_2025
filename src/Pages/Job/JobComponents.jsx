@@ -1,4 +1,3 @@
-// JobComponents.jsx
 import React, { useEffect, useState } from "react";
 import "./Job.css";
 
@@ -25,16 +24,14 @@ const JobComponents = () => {
     fetchJobs();
   }, []);
 
-  // Handle bookmark
   const handleBookmark = (jobId) => {
-    setBookmarkedJobs((prevBookmarks) =>
-      prevBookmarks.includes(jobId)
-        ? prevBookmarks.filter((id) => id !== jobId)
-        : [...prevBookmarks, jobId]
+    setBookmarkedJobs((prev) =>
+      prev.includes(jobId)
+        ? prev.filter((id) => id !== jobId)
+        : [...prev, jobId]
     );
   };
 
-  // Apply filters
   const filteredJobs = jobs.filter((job) => {
     const salary = parseInt(job.salary.replace(/\D/g, ""));
     const matchesSalary =
@@ -53,17 +50,16 @@ const JobComponents = () => {
 
   return (
     <div className="job-wrapper">
-      <h1 className="job-title">Job Listings</h1>
+      <h1 className="job-title">Explore Jobs</h1>
 
-      {/* Filters */}
       <div className="filter-container">
-        <select onChange={(e) => setSalaryFilter(e.target.value)}>
+        <select value={salaryFilter} onChange={(e) => setSalaryFilter(e.target.value)}>
           <option value="All">All Salaries</option>
           <option value="<70000">Below 70k</option>
           <option value=">=70000">70k or Above</option>
         </select>
 
-        <select onChange={(e) => setWorkTypeFilter(e.target.value)}>
+        <select value={workTypeFilter} onChange={(e) => setWorkTypeFilter(e.target.value)}>
           <option value="All">All Work Types</option>
           <option value="full-time">Full-time</option>
           <option value="part-time">Part-time</option>
@@ -72,41 +68,40 @@ const JobComponents = () => {
         </select>
       </div>
 
-      {/* Job Cards */}
       <div className="job-card-container">
         {loading ? (
-          <p>Loading jobs...</p>
+          <p className="loading-message">Loading jobs...</p>
         ) : filteredJobs.length === 0 ? (
-          <p>No jobs match the selected filters.</p>
+          <p className="empty-message">No jobs match your filters.</p>
         ) : (
           filteredJobs.map((job) => {
             const numericSalary = parseInt(job.salary.replace(/\D/g, ""));
+            const isHighSalary = numericSalary >= 70000;
+            const bookmarked = bookmarkedJobs.includes(job._id);
+
             return (
               <div className="job-card" key={job._id}>
-                <h2 className="job-name">{job.name}</h2>
+                <div className="job-header">
+                  <h2 className="job-name">{job.name}</h2>
+                  <span className={`job-badge ${job.work_hours.includes("remote") ? "remote" : "onsite"}`}>
+                    {job.work_hours}
+                  </span>
+                </div>
+
                 <p className="job-description">{job.description}</p>
 
                 <div className="job-info">
-                  <p>
-                    <strong>Work Hours:</strong> {job.work_hours}
-                  </p>
-                  <p>
-                    <strong>Salary:</strong> {job.salary}
-                  </p>
-                  <p className={numericSalary < 70000 ? "reject" : "accept"}>
-                    {numericSalary < 70000
-                      ? "bhaag beta abul"
-                      : "baba bolo kobul"}
+                  <p><strong>Salary:</strong> {job.salary}</p>
+                  <p className={`status-badge ${isHighSalary ? "accept" : "reject"}`}>
+                    {isHighSalary ? "baba bolo kobul" : "bhaag beta abul"}
                   </p>
                 </div>
 
                 <button
                   onClick={() => handleBookmark(job._id)}
-                  className={bookmarkedJobs.includes(job._id) ? "bookmarked" : ""}
+                  className={bookmarked ? "bookmarked" : ""}
                 >
-                  {bookmarkedJobs.includes(job._id)
-                    ? "Bookmarked"
-                    : "Bookmark"}
+                  {bookmarked ? "Bookmarked" : "Bookmark"}
                 </button>
               </div>
             );
