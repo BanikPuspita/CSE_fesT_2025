@@ -1,0 +1,56 @@
+/* Job.css */
+
+.job-wrapper {
+    padding: 20px;
+    background-color: #f5f8fa;
+    min-height: 100vh;
+  }
+  
+  .job-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1f2937;
+  }
+  
+  .job-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  .job-card {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .job-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: #111827;
+  }
+  
+  .job-card p {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: #374151;
+  }
+  
+  .accept {
+    color: #2563eb;
+    font-weight: bold;
+  }
+  
+  .reject {
+    color: #dc2626;
+    font-weight: bold;
+  }
