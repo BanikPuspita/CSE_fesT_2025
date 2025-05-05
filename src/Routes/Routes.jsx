@@ -14,6 +14,7 @@ import AdminLayout from "../Layout/AdminLayout";
 import AdminHome from "../Pages/AdminPages/AdminHome/AdminHome";
 import Marathon from "../Pages/Marathon/Marathon";
 import GymBuddy from "../Pages/GymBuddy/GymBuddy";
+import AdminMovie from "../Pages/AdminPages/AdminMovie/AdminMovie";
 
 
 
@@ -77,6 +78,10 @@ export const router = createBrowserRouter([
                     {
                         path: "adminhome",
                         element: <AdminHome/>,
+                     },
+                     {
+                        path: "adminmovie",
+                        element: <AdminMovie/>,
                      },
                 ]
             },

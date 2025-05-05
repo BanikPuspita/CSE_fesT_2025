@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
+import './AdminMovie.css';
 
 const AdminMovie = () => {
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 6; 
 
     useEffect(() => {
         fetchMovies();
@@ -16,8 +14,14 @@ const AdminMovie = () => {
     const fetchMovies = async () => {
         try {
             const response = await axios.get('http://localhost:5000/api/movies');
-            if (!response.data) throw new Error('Failed to fetch movies');
-            setMovies(response.data.data);
+            console.log("API Response:", response.data); // Log the entire response
+            
+            // Access the myData array from the response
+            if (response.data && Array.isArray(response.data.myData)) {
+                setMovies(response.data.myData);
+            } else {
+                throw new Error('Data format is incorrect');
+            }
         } catch (error) {
             setError(error.message);
         }
@@ -68,41 +72,29 @@ const AdminMovie = () => {
         }
     };
 
-    const handleView = (movie) => {
-        Swal.fire({
-            title: 'Movie Details',
-            html: `
-                <strong>Title:</strong> ${movie.title}<br>
-                <strong>Director:</strong> ${movie.director}<br>
-                <strong>Genre:</strong> ${movie.genre}<br>
-                <strong>Release Year:</strong> ${movie.releaseYear}
-            `,
-            icon: 'info',
-            confirmButtonText: 'Close'
-        });
-    };
-
     const handleEdit = (movie) => {
         Swal.fire({
             title: 'Update Movie',
             html: `
                 <input id="swal-input1" class="swal2-input" placeholder="Title" value="${movie.title}">
-                <input id="swal-input2" class="swal2-input" placeholder="Director" value="${movie.director}">
-                <input id="swal-input3" class="swal2-input" placeholder="Genre" value="${movie.genre}">
-                <input id="swal-input4" class="swal2-input" placeholder="Release Year" value="${movie.releaseYear}">
+                <input id="swal-input2" class="swal2-input" placeholder="Year" value="${movie.year}">
+                <input id="swal-input3" class="swal2-input" placeholder="Image URL" value="${movie.image}">
+                <input id="swal-input4" class="swal2-input" placeholder="Description" value="${movie.description}">
+                <input id="swal-input5" class="swal2-input" placeholder="Wikipedia Link" value="${movie.wikipedia}">
             `,
             focusConfirm: false,
             preConfirm: () => {
                 const title = document.getElementById('swal-input1').value;
-                const director = document.getElementById('swal-input2').value;
-                const genre = document.getElementById('swal-input3').value;
-                const releaseYear = document.getElementById('swal-input4').value;
+                const year = document.getElementById('swal-input2').value;
+                const image = document.getElementById('swal-input3').value;
+                const description = document.getElementById('swal-input4').value;
+                const wikipedia = document.getElementById('swal-input5').value;
 
-                if (!title || !director || !genre || !releaseYear) {
+                if (!title || !year || !image || !description || !wikipedia) {
                     Swal.showValidationMessage('All fields are required');
                 }
 
-                return { title, director, genre, releaseYear };
+                return { title, year, image, description, wikipedia };
             }
         }).then((result) => {
             if (result.isConfirmed) {
@@ -116,22 +108,24 @@ const AdminMovie = () => {
             title: 'Create New Movie',
             html: `
                 <input id="swal-input1" class="swal2-input" placeholder="Title">
-                <input id="swal-input2" class="swal2-input" placeholder="Director">
-                <input id="swal-input3" class="swal2-input" placeholder="Genre">
-                <input id="swal-input4" class="swal2-input" placeholder="Release Year">
+                <input id="swal-input2" class="swal2-input" placeholder="Year">
+                <input id="swal-input3" class="swal2-input" placeholder="Image URL">
+                <input id="swal-input4" class="swal2-input" placeholder="Description">
+                <input id="swal-input5" class="swal2-input" placeholder="Wikipedia Link">
             `,
             focusConfirm: false,
             preConfirm: () => {
                 const title = document.getElementById('swal-input1').value;
-                const director = document.getElementById('swal-input2').value;
-                const genre = document.getElementById('swal-input3').value;
-                const releaseYear = document.getElementById('swal-input4').value;
+                const year = document.getElementById('swal-input2').value;
+                const image = document.getElementById('swal-input3').value;
+                const description = document.getElementById('swal-input4').value;
+                const wikipedia = document.getElementById('swal-input5').value;
 
-                if (!title || !director || !genre || !releaseYear) {
+                if (!title || !year || !image || !description || !wikipedia) {
                     Swal.showValidationMessage('All fields are required');
                 }
 
-                return { title, director, genre, releaseYear };
+                return { title, year, image, description, wikipedia };
             }
         }).then((result) => {
             if (result.isConfirmed) {
@@ -140,20 +134,12 @@ const AdminMovie = () => {
         });
     };
 
-    const indexOfLastMovie = currentPage * itemsPerPage;
-    const indexOfFirstMovie = indexOfLastMovie - itemsPerPage;
-    const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
-
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    const totalPages = Math.ceil(movies.length / itemsPerPage);
-
     return (
         <div className='prod'>
             <h2>Manage Movies</h2>
             {error && <p>Error: {error}</p>}
             <div>
-                <h3>Create Movies</h3>
+                <h3>Create Movie</h3>
                 <button onClick={openCreateMovieModal}>
                     <span role="img" aria-label="plus">➕</span> Add Movie
                 </button>
@@ -162,12 +148,11 @@ const AdminMovie = () => {
             <div className='listt'>
                 <h3>Movie List</h3>
                 <ul className='movie-list'>
-                    {currentMovies.map((movie) => (
+                    {movies.map((movie) => (
                         <li key={movie._id} className='movie-item'>
                             <div className='movie-box'>
                                 <span className='movie-title'>{movie.title}</span>
                                 <div className='icons'>
-                                    <span className='icon' onClick={() => handleView(movie)}>👁️</span>
                                     <span className='icon' onClick={() => handleEdit(movie)}>✏️</span>
                                     <span className='icon' onClick={() => handleDelete(movie._id)}>🗑️</span>
                                 </div>
@@ -175,17 +160,6 @@ const AdminMovie = () => {
                         </li>
                     ))}
                 </ul>
-                <div className='pagination'>
-                    {Array.from({ length: totalPages }, (_, index) => (
-                        <button
-                            key={index + 1}
-                            onClick={() => paginate(index + 1)}
-                            className={index + 1 === currentPage ? 'active' : ''}
-                        >
-                            {index + 1}
-                        </button>
-                    ))}
-                </div>
             </div>
         </div>
     );
