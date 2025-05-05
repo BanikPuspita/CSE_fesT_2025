@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
-    return (
-        <div>
-            <p>Navbar</p>
-        </div>
-    );
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="logo">Hablu the Stupid</div>
+      <ul className="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/job">Find Job</a></li>
+        <li><a href="#services">Services</a></li>
+        <li className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+          <a href="#improve-studies">Improve Studies</a>
+          {dropdownOpen && (
+            <ul className="dropdown-menu">
+              <li><a href="#study-tips">Study Tips</a></li>
+              <li><a href="#resources">Resources</a></li>
+            </ul>
+          )}
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Navbar;
