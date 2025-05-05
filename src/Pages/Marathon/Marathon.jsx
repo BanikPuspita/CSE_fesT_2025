@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './Marathon.css';
 const API_KEY = "";
 
 const Marathon = () => {
@@ -19,7 +19,9 @@ const Marathon = () => {
                     }
                 }
             );
-            setMarathonData(response.data.data || []); // Ensure you access `.data.data` if response format is like `{ data: [...] }`
+
+            // Assuming API returns: { data: [marathonObject] }
+            setMarathonData(response.data.data || []);
             setError(null);
         } catch (error) {
             setError('Error fetching marathon data');
@@ -36,27 +38,33 @@ const Marathon = () => {
                 Let’s help him find the right event to start his journey.
             </p>
             <button onClick={fetchMarathonInfo}>Fetch Marathon Info</button>
+
             {error && <p style={{ color: 'red' }}>{error}</p>}
+
             {marathonData.length > 0 && (
                 <div>
                     <h3>Upcoming Marathons</h3>
-                    <ul>
-                        {marathonData.map((marathon, index) => (
-                            <li key={index} style={{ border: '1px solid #ccc', borderRadius: '10px', padding: '10px', margin: '10px 0' }}>
-                                <h4>{marathon.title}</h4>
-                                <p><strong>Date:</strong> {marathon.date}</p>
-                                <p><strong>Location:</strong> {marathon.location}</p>
-                                <p><strong>Description:</strong> {marathon.description}</p>
-                                {marathon.registrationLink && (
-                                    <p>
-                                        <a href={marathon.registrationLink} target="_blank" rel="noopener noreferrer">
-                                            Register Here
-                                        </a>
-                                    </p>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
+                    {marathonData.map((marathon, index) => (
+                        <div key={index} style={{ border: '1px solid #ccc', borderRadius: '10px', padding: '10px', margin: '10px 0' }}>
+                            <h4>{marathon.name}</h4>
+                            <p><strong>Date:</strong> {marathon.date}</p>
+                            <p><strong>Location:</strong> {marathon.location}</p>
+                            <p><strong>Distance:</strong> {marathon.distance}</p>
+
+                            <h5>Participants:</h5>
+                            {marathon.participants && marathon.participants.length > 0 ? (
+                                <ul>
+                                    {marathon.participants.map((participant, idx) => (
+                                        <li key={idx}>
+                                            <strong>{participant.rank}. {participant.name}</strong> ({participant.category}) - Time: {participant.time}, Age: {participant.age}, Gender: {participant.gender}, Nationality: {participant.nationality}
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p>No participants yet.</p>
+                            )}
+                        </div>
+                    ))}
                 </div>
             )}
         </div>
