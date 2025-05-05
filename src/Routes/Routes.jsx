@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Job from "../Pages/Job/Job";
 import Signup from "../Pages/Shared/Registration/Signup/Signup";
 import Login from "../Pages/Shared/Registration/Login/Login";
+import Cgpa from "../Pages/Save Cgpa/Cgpa";
 
 
 
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path:"/login",
                 element:<Login/>,
+            },
+            {
+                path:"/cgpa",
+                element:<Cgpa/>,
             },
         ]
 
