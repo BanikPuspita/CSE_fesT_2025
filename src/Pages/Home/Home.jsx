@@ -1,18 +1,17 @@
 import React from 'react';
+import './Home.css'
 
 const Home = () => {
     return (
         <div className="homepage">
-          {/* Hero Section */}
           <section className="hero">
             <h1>Welcome to Hablu’s Comeback Journey</h1>
             <p>
               Join Hablu as he works to improve his CGPA, learn new skills, and transform his life!
             </p>
-            <button className="start-missions-btn">Start Missions</button>
+            <button className="start-missions-btn">Let’s Fix Hablu’s Life</button>
           </section>
     
-          {/* Timeline Section */}
           <section className="timeline">
             <h2>Transformation Timeline</h2>
             <ul>
@@ -23,7 +22,6 @@ const Home = () => {
             </ul>
           </section>
     
-          {/* Motivational Quotes */}
           <section className="quotes">
             <h2>Motivational Quotes from Sokhina</h2>
             <blockquote>“Even senior bhaiyas have CGPAs of 3.9…”</blockquote>
