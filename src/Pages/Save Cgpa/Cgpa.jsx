@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Cgpa.css';
-
+import StudyOrganizer from './StudyOrganizer/StudyOrganizer';
 const Cgpa = () => {
   const [numCourses, setNumCourses] = useState(0);
   const [courses, setCourses] = useState([]);
@@ -137,8 +137,11 @@ const Cgpa = () => {
           </table>
         </div>
       )}
+
+      <StudyOrganizer />
     </div>
   );
 };
+
 
 export default Cgpa;
