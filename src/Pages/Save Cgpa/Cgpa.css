@@ -58,4 +58,18 @@
     color: #333;
     font-size: 20px;
   }
+  .enrolled-courses table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
   
+  .enrolled-courses th, .enrolled-courses td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .enrolled-courses th {
+    background-color: #f2f2f2;
+  }

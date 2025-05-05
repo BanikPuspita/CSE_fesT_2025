@@ -5,6 +5,8 @@ import Job from "../Pages/Job/Job";
 import Signup from "../Pages/Shared/Registration/Signup/Signup";
 import Login from "../Pages/Shared/Registration/Login/Login";
 import Cgpa from "../Pages/Save Cgpa/Cgpa";
+import StudyOrganizer from "../Pages/Save Cgpa/StudyOrganizer/StudyOrganizer";
+import StartLife from "../Pages/StartLife/StartLife";
 import Skills from "../Pages/Skills/Skills";
 
 
@@ -22,7 +24,7 @@ export const router = createBrowserRouter([
                 path:"/job",
                 element:<Job/>,
             },
-            {
+            { 
                 path:"/signup",
                 element:<Signup/>,
             },
@@ -35,10 +37,18 @@ export const router = createBrowserRouter([
                 element:<Cgpa/>,
             },
             {
-                path:"/skills",
-                element:<Skills/>
+                path:"/study",
+                element:<StudyOrganizer/>,
             },
-            
+            {
+                path:"/startlife",
+                element:<StartLife/>,
+            },
+            {
+                path:"/skills",
+                element:<Skills/>,
+            },
+
         ]
 
     }
