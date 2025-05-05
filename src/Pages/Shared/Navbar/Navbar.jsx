@@ -14,7 +14,7 @@ const Navbar = () => {
       <ul className="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/job">Find Job</a></li>
-        <li><a href="/movie">Movies</a></li>
+        <li><a href="/movie">Movies</a></li> 
         <li><a href="/therapist">Emotional support</a></li>
         <li className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
           <a href="#improve-studies">Improve Studies</a>

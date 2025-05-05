@@ -10,6 +10,8 @@ import StartLife from "../Pages/StartLife/StartLife";
 import Skills from "../Pages/Skills/Skills";
 import Movie from "../Pages/Movie/Movie";
 import Therapist from "../Pages/Therapist/Therapist";
+import AdminLayout from "../Layout/AdminLayout";
+import AdminHome from "../Pages/AdminPages/AdminHome/AdminHome";
 
 
 
@@ -58,6 +60,18 @@ export const router = createBrowserRouter([
                 path:"/therapist",
                 element:<Therapist/>,
             },
+            {
+                path:"/admin",
+                element:<AdminLayout/>,
+                children:[
+                    {
+                        path: "adminhome",
+                        element: <AdminHome/>,
+                     },
+                ]
+            },
+           
+
 
         ]
 
