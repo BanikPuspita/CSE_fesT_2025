@@ -13,6 +13,7 @@ import Therapist from "../Pages/Therapist/Therapist";
 import AdminLayout from "../Layout/AdminLayout";
 import AdminHome from "../Pages/AdminPages/AdminHome/AdminHome";
 import Marathon from "../Pages/Marathon/Marathon";
+import GymBuddy from "../Pages/GymBuddy/GymBuddy";
 
 
 
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             { 
                 path:"/marathon",
                 element:<Marathon/>,
+            },
+            {
+                path:"/gymbuddy",
+                element:<GymBuddy/>,
             },
             {
                 path:"/login",
