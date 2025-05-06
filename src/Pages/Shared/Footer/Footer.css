@@ -4,15 +4,15 @@ html, body {
 }
 
 .footer {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  margin-top: 395px;
+  background: linear-gradient(135deg, #66a6ff, #89f7fe); /* Matching gradient */
+  color: #ffffff;
+  padding: 1rem 2rem;
   text-align: center;
   position: relative;
   width: 100%;
-  height: 100px; 
   bottom: 0;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 0 0;
 }
 
 .footer-content {
@@ -33,10 +33,13 @@ html, body {
 }
 
 .footer-links a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-links a:hover {
-  text-decoration: underline;
+  color: #ffefba;
+  transform: scale(1.05);
 }
