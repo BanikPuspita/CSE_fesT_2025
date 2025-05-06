@@ -98,7 +98,7 @@ button:hover {
 }
 
 .enrolled-courses h3 {
-  color: #ffffff;
+  color: black;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -114,7 +114,7 @@ button:hover {
 .enrolled-courses td {
   padding: 12px;
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: black;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
 }

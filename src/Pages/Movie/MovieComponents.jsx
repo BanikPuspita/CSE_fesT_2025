@@ -23,7 +23,6 @@ const AdminMovie = () => {
 
   return (
     <div className="movie-wrapper">
-      <h1 className="movie-title">Available Movies for Habul</h1>
       <div className="job-card-container">
         {loading ? (
           <p>Loading movies...</p>

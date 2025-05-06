@@ -27,7 +27,7 @@ const Login = () => {
         if (userData.role === "admin") {
           navigate("/admin/adminhome");
         } else {
-          navigate("/profile");
+          navigate("/cgpa");
         }
 
         toast.success("User logged in successfully", { position: "top-center" });

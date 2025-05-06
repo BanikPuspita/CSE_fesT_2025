@@ -5,7 +5,7 @@ import "./Movie.css";
 const Movie = () => {
   return (
     <div className="movie-wrapper">
-      <h1 className="movie-title">Available Movies for Habul</h1>
+      <h1 className="movie-title">Movie Hablu has watched</h1>
       <MovieComponents />
     </div>
   );

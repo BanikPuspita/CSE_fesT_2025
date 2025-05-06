@@ -59,12 +59,11 @@ const GymBuddy = () => {
     return (
         <div>
             <h2>Find a Gym Friend</h2>
-            <button onClick={handleFetchGyms}>Fetch Gym Info</button>
-            <button onClick={handleFetchBuddies}>Fetch Gym Buddies</button>
+            <button onClick={handleFetchGyms}>Gym Information</button>
+            <button onClick={handleFetchBuddies}>Hablus Gym Buddies</button>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {showGyms && gymData && (
                 <div className="card-container">
-                    <h3>Nearby Gyms</h3>
                     {gymData.data.map(gym => (
                         <div className="card" key={gym.id}>
                             <h4>{gym.name}</h4>
@@ -82,7 +81,6 @@ const GymBuddy = () => {
             )}
             {showBuddies && buddyData && (
                 <div className="card-container">
-                    <h3>Nearby Gym Buddies</h3>
                     {buddyData.data.map(buddy => (
                         <div className="card" key={buddy.id}>
                             <h4>{buddy.name}</h4>
