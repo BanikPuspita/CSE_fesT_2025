@@ -78,18 +78,20 @@ const AdminJob = () => {
                 <input id="swal-input1" class="swal2-input" placeholder="Name" value="${job.name}">
                 <input id="swal-input2" class="swal2-input" placeholder="Description" value="${job.description}">
                 <input id="swal-input3" class="swal2-input" placeholder="Work Hours" value="${job.work_hours}">
+                <input id="swal-input4" class="swal2-input" placeholder="Salary" value="${job.salary}">
             `,
             focusConfirm: false,
             preConfirm: () => {
                 const name = document.getElementById('swal-input1').value;
                 const description = document.getElementById('swal-input2').value;
                 const work_hours = document.getElementById('swal-input3').value;
+                const salary = document.getElementById('swal-input4').value;
 
-                if (!name || !description || !work_hours) {
+                if (!name || !description || !work_hours || !salary) {
                     Swal.showValidationMessage('All fields are required');
                 }
 
-                return { name, description, work_hours };
+                return { name, description, work_hours, salary };
             }
         }).then((result) => {
             if (result.isConfirmed) {
@@ -105,18 +107,20 @@ const AdminJob = () => {
                 <input id="swal-input1" class="swal2-input" placeholder="Name">
                 <input id="swal-input2" class="swal2-input" placeholder="Description">
                 <input id="swal-input3" class="swal2-input" placeholder="Work Hours">
+                <input id="swal-input4" class="swal2-input" placeholder="Salary">
             `,
             focusConfirm: false,
             preConfirm: () => {
                 const name = document.getElementById('swal-input1').value;
                 const description = document.getElementById('swal-input2').value;
                 const work_hours = document.getElementById('swal-input3').value;
+                const salary = document.getElementById('swal-input4').value;
 
-                if (!name || !description || !work_hours) {
+                if (!name || !description || !work_hours || !salary) {
                     Swal.showValidationMessage('All fields are required');
                 }
 
-                return { name, description, work_hours };
+                return { name, description, work_hours, salary };
             }
         }).then((result) => {
             if (result.isConfirmed) {
@@ -160,7 +164,6 @@ const AdminJob = () => {
 
     return (
         <div className='prod'>
-          
             {error && <p>Error: {error}</p>}
             <div>
                 <h3>See potential jobs</h3>
@@ -176,13 +179,13 @@ const AdminJob = () => {
                             <div className='job-box'>
                                 <span className='job-title'>{job.name}</span>
                                 <div className='icons'>
-                                
                                     <span className='icon' onClick={() => handleEdit(job)}>✏️</span>
                                     <span className='icon' onClick={() => handleDelete(job._id)}>🗑️</span>
                                 </div>
                                 <div className='job-details'>
                                     <p><strong>Description:</strong> {job.description}</p>
                                     <p><strong>Work Hours:</strong> {job.work_hours}</p>
+                                    <p><strong>Salary:</strong> {job.salary}</p>
                                 </div>
                             </div>
                         </li>

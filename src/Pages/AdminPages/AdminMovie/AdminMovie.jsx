@@ -6,6 +6,8 @@ import './AdminMovie.css';
 const AdminMovie = () => {
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const moviesPerPage = 6;
 
     useEffect(() => {
         fetchMovies();
@@ -16,7 +18,6 @@ const AdminMovie = () => {
             const response = await axios.get('http://localhost:5000/api/movies');
             console.log("API Response:", response.data); // Log the entire response
             
-            // Access the myData array from the response
             if (response.data && Array.isArray(response.data.myData)) {
                 setMovies(response.data.myData);
             } else {
@@ -34,6 +35,7 @@ const AdminMovie = () => {
             await fetchMovies();
             Swal.fire('Created!', 'Movie has been created.', 'success');
         } catch (error) {
+            console.error('Error creating movie:', error.response?.data || error.message);
             setError(error.message);
         }
     };
@@ -134,12 +136,45 @@ const AdminMovie = () => {
         });
     };
 
+    // Pagination logic
+    const indexOfLastMovie = currentPage * moviesPerPage;
+    const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+    const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+    const totalPages = Math.ceil(movies.length / moviesPerPage);
+
+    const handlePageClick = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    const renderPageNumbers = () => {
+        const pageNumbers = [];
+        for (let i = 1; i <= totalPages; i++) {
+            pageNumbers.push(
+                <button
+                    key={i}
+                    onClick={() => handlePageClick(i)}
+                    disabled={currentPage === i}
+                    style={{
+                        margin: '0 5px',
+                        padding: '5px 10px',
+                        backgroundColor: currentPage === i ? '#3085d6' : '#fff',
+                        color: currentPage === i ? '#fff' : '#000',
+                        border: '1px solid #ccc',
+                        cursor: currentPage === i ? 'default' : 'pointer'
+                    }}
+                >
+                    {i}
+                </button>
+            );
+        }
+        return pageNumbers;
+    };
+
     return (
         <div className='prod'>
             <h2>Manage Movies</h2>
             {error && <p>Error: {error}</p>}
             <div>
-                <h3>Create Movie</h3>
                 <button onClick={openCreateMovieModal}>
                     <span role="img" aria-label="plus">➕</span> Add Movie
                 </button>
@@ -148,7 +183,7 @@ const AdminMovie = () => {
             <div className='listt'>
                 <h3>Movie List</h3>
                 <ul className='movie-list'>
-                    {movies.map((movie) => (
+                    {currentMovies.map((movie) => (
                         <li key={movie._id} className='movie-item'>
                             <div className='movie-box'>
                                 <span className='movie-title'>{movie.title}</span>
@@ -160,6 +195,11 @@ const AdminMovie = () => {
                         </li>
                     ))}
                 </ul>
+                <div className='pagination'>
+                    <button onClick={() => handlePageClick(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
+                    {renderPageNumbers()}
+                    <button onClick={() => handlePageClick(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
+                </div>
             </div>
         </div>
     );
