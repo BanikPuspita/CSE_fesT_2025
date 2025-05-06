@@ -1,0 +1,41 @@
+.admin-cgpa-container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .chart-wrapper {
+    margin-bottom: 40px;
+    width: 32%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .chart-wrapper {
+      width: 48%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .chart-wrapper {
+      width: 100%;
+    }
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  h3 {
+    text-align: center;
+  }
+  

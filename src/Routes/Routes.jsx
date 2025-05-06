@@ -15,6 +15,9 @@ import AdminHome from "../Pages/AdminPages/AdminHome/AdminHome";
 import Marathon from "../Pages/Marathon/Marathon";
 import GymBuddy from "../Pages/GymBuddy/GymBuddy";
 import AdminMovie from "../Pages/AdminPages/AdminMovie/AdminMovie";
+import Adminjob from "../Pages/AdminPages/AdminJob/Adminjob";
+import AdminMarathon from "../Pages/AdminPages/AdminMarathon/AdminMarathon";
+import AdminCgpa from "../Pages/AdminPages/AdminCgpa/AdminCgpa";
 
 
 
@@ -82,6 +85,18 @@ export const router = createBrowserRouter([
                      {
                         path: "adminmovie",
                         element: <AdminMovie/>,
+                     },
+                     {
+                        path: "adminjob",
+                        element: <Adminjob/>,
+                     },
+                     {
+                        path: "adminrun",
+                        element: <AdminMarathon/>,
+                     },
+                     {
+                        path: "admincgpa",
+                        element: <AdminCgpa/>,
                      },
                 ]
             },

@@ -1,0 +1,51 @@
+.admin-home {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.widgets {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.widget {
+    width: 250px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.widget:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.widget-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.widget-description {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+.widget-description:last-child {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+}

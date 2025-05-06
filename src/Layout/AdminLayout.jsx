@@ -18,8 +18,10 @@ const AdminLayout = () => {
                 <nav className="admin-nav">
                     <ul>
                         <li><Link to="/admin/adminhome" className="admin-link">Home</Link></li>
-                        <li><Link to="#" className="admin-link">Movies</Link></li>
-                        <li><Link to="#" className="admin-link">Skills</Link></li>
+                        <li><Link to="/admin/adminmovie" className="admin-link">Movies</Link></li>
+                        <li><Link to="/admin/adminjob" className="admin-link">Job</Link></li>
+                        <li><Link to="/admin/adminrun" className="admin-link">Run distance</Link></li>
+                        <li><Link to="/admin/admincgpa" className="admin-link">CGPA Monitor</Link></li>
                     </ul>
                 </nav>
                 <button className="admin-logout" onClick={handleLogout}>
